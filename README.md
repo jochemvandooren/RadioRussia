@@ -34,3 +34,7 @@ http://www.dharwadker.org/vertex_coloring/
 
 https://www.amcharts.com/svg-maps/?map=china
 
+## Ideas
+
+- Eerst provincies assignen waar aantal neighbours laagst is
+
