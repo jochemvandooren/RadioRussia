@@ -22,3 +22,7 @@ http://math.tutorcircle.com/discrete-math/graph-coloring.html
 ##### Greed wiki
 
 https://en.wikipedia.org/wiki/Greedy_coloring#Heuristic_ordering_strategies
+
+##### 4 colours theorem
+
+http://www.dharwadker.org/vertex_coloring/
