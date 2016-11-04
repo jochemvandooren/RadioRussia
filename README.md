@@ -3,9 +3,9 @@
 ## Deelnemers
 Jochem van Dooren
 
-Stanley
+Stanley Kelder
 
-Wouter
+Roelof Konijnenberg
 
 ## Plan van aanpak
 
