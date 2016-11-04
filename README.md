@@ -17,3 +17,8 @@ Roelof Konijnenberg
 ##### Welsh-Powell Algorithm
 
 http://math.tutorcircle.com/discrete-math/graph-coloring.html
+
+
+##### Greed wiki
+
+https://en.wikipedia.org/wiki/Greedy_coloring#Heuristic_ordering_strategies
