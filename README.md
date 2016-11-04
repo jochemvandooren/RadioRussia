@@ -3,7 +3,7 @@
 ## Deelnemers
 Jochem van Dooren
 
-Stanley
+Stanley Kelder
 
 Roelof Konijnenberg
 
