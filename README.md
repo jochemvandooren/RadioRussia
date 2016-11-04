@@ -26,3 +26,11 @@ https://en.wikipedia.org/wiki/Greedy_coloring#Heuristic_ordering_strategies
 ##### 4 colours theorem
 
 http://www.dharwadker.org/vertex_coloring/
+
+
+## Map sources
+
+##### China
+
+https://www.amcharts.com/svg-maps/?map=china
+
