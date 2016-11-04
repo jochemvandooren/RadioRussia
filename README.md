@@ -12,3 +12,8 @@ Roelof Konijnenberg
 - Kaarten vertalen in dictionaries waar key = provincie en value = id's van neighbours in een list
 - Verzinnen welke soort algoritmes gebruikt gaan worden
 
+## Algoritme sources
+
+##### Welsh-Powell Algorithm
+
+http://math.tutorcircle.com/discrete-math/graph-coloring.html
