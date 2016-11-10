@@ -2,8 +2,9 @@ import pickle
 from random import shuffle
 with open('Russia.pickle', 'rb') as handle:
   Russia = pickle.load(handle)
-
+print 'Neighbours dictionary:'
 print Russia
+print
 
 towers = ['A','B','C','D','E','F','G']
 colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000', 'F':'green', 'G':'blue'}
@@ -31,9 +32,11 @@ def calculate_towers(indices):
 	        towerdict[i] = towers2[0]
                 
     return towerdict
-    
+
+print 'Colour dictionary:'
 print calculate_towers(indices)
-print 'F' in calculate_towers(indices).values()
+
+
 import xml.etree.ElementTree as ET
 tree = ET.parse('Russia.svg')
 root = tree.getroot()
