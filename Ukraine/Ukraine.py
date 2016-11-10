@@ -6,7 +6,7 @@ from random import shuffle
 
 #loading the dictionary from with pickle
 import pickle
-with open('ukraine_dictionary.pickle', 'rb') as handle:
+with open('Ukraine.pickle', 'rb') as handle:
   ukraine = pickle.load(handle)
 
 print ukraine
@@ -41,7 +41,7 @@ colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0
 
 
 import xml.etree.ElementTree as ET
-tree = ET.parse('ua.svg')
+tree = ET.parse('Ukraine.svg')
 root = tree.getroot()
 for province in root[2]:
 	province.set('fill', colours[towerdict[int(province.attrib['id'])]])
