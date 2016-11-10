@@ -12,3 +12,29 @@ Roelof Konijnenberg
 - Kaarten vertalen in dictionaries waar key = provincie en value = id's van neighbours in een list
 - Verzinnen welke soort algoritmes gebruikt gaan worden
 
+## Algoritme sources
+
+##### Welsh-Powell Algorithm
+
+http://math.tutorcircle.com/discrete-math/graph-coloring.html
+
+
+##### Greed wiki
+
+https://en.wikipedia.org/wiki/Greedy_coloring#Heuristic_ordering_strategies
+
+##### 4 colours theorem
+
+http://www.dharwadker.org/vertex_coloring/
+
+
+## Map sources
+
+##### China
+
+https://www.amcharts.com/svg-maps/?map=china
+
+## Ideas
+
+- Eerst provincies assignen waar aantal neighbours laagst is
+
