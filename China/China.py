@@ -17,17 +17,21 @@ def calculate_towers(indices):
         towers2 = ['A','B','C','D','E','F','G']
         neighbours = China[i]
 
-        #remove possible towers based on neighbours
-        for neighbour in neighbours:
-            if neighbour in towerdict.keys():
-                if towerdict[neighbour] in towers2:
-                    towers2.remove(towerdict[neighbour])
-    
-        #get first tower from list    
-        towerdict[i] = towers2[0]
+        if len(neighbours) == 0:
+        	towerdict[i] = towers2[0]
+        else:
+
+	        #remove possible towers based on neighbours
+	        for neighbour in neighbours:
+	            if neighbour in towerdict.keys():
+	                if towerdict[neighbour] in towers2:
+	                    towers2.remove(towerdict[neighbour])
+	    
+	        #get first tower from list    
+	        towerdict[i] = towers2[0]
                 
     return towerdict
     
-print 'E' in calculate_towers(indices).values()
+print calculate_towers(indices)
 
 
