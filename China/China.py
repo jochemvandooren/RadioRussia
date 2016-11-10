@@ -33,7 +33,7 @@ def calculate_towers(indices):
     return towerdict
     
 print calculate_towers(indices)
-
+print 'F' in calculate_towers(indices).values()
 import xml.etree.ElementTree as ET
 tree = ET.parse('China.svg')
 root = tree.getroot()
