@@ -34,4 +34,11 @@ def calculate_towers(indices):
     
 print calculate_towers(indices)
 
+import xml.etree.ElementTree as ET
+tree = ET.parse('China.svg')
+root = tree.getroot()
+for province in root[1]:
+	province.set('fill', colours[towerdict[int(province.attrib['id'])]])
+
+tree.write('output.svg')
 
