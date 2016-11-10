@@ -36,12 +36,9 @@ def calculate_towers(indices):
     return towerdict
 print calculate_towers(indices)
 
-colours = {'A': '#7F0000',
- 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626',
-'E':'#CC0000'}
+colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
             
 
-import xml.etree.ElementTree as ET
 
 import xml.etree.ElementTree as ET
 tree = ET.parse('ua.svg')
@@ -51,7 +48,8 @@ for province in root[2]:
 
 tree.write('output.svg')
 
-for i in range(0,200):
-	if 'D' not in calculate_towers(indices).values():
-		print 'SICK'
+#TEST TO CHECK IF MORE THAN 3 TOWERS
+# for i in range(0,200):
+# 	if 'D' not in calculate_towers(indices).values():
+# 		print 'SICK'
         
