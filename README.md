@@ -37,4 +37,5 @@ https://www.amcharts.com/svg-maps/?map=china
 ## Ideas
 
 - Eerst provincies assignen waar aantal neighbours laagst is
+- Networkx gebruiken? http://codereview.stackexchange.com/questions/120496/a-graph-representation-of-adjacent-matrix-in-python
 
