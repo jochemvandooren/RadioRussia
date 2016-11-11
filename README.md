@@ -30,11 +30,11 @@ http://www.dharwadker.org/vertex_coloring/
 
 ## Map sources
 
-##### China
+- China
 
 https://www.amcharts.com/svg-maps/?map=china
 
-##### USA
+- USA
 
 https://www.amcharts.com/svg-maps/?map=usa
 
@@ -43,6 +43,8 @@ https://www.amcharts.com/svg-maps/?map=usa
 https://www.amcharts.com/svg-maps/?map=russia
 
 ##### Ukraine
+
+https://commons.wikimedia.org/wiki/Category:SVG_maps_of_Ukraine
 
 ## Ideas
 
