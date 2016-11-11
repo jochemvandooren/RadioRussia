@@ -30,17 +30,13 @@ http://www.dharwadker.org/vertex_coloring/
 
 ## Map sources
 
-- China
-https://www.amcharts.com/svg-maps/?map=china
+- China: https://www.amcharts.com/svg-maps/?map=china
 
-- USA
-https://www.amcharts.com/svg-maps/?map=usa
+- USA: https://www.amcharts.com/svg-maps/?map=usa
 
-- Russia
-https://www.amcharts.com/svg-maps/?map=russia
+- Russia: https://www.amcharts.com/svg-maps/?map=russia
 
-- Ukraine
-https://commons.wikimedia.org/wiki/Category:SVG_maps_of_Ukraine
+- Ukraine: https://commons.wikimedia.org/wiki/Category:SVG_maps_of_Ukraine
 
 ## Ideas
 
