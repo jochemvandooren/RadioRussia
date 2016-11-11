@@ -40,6 +40,7 @@ http://www.dharwadker.org/vertex_coloring/
 
 ## Ideas
 
+- Vaste patronen eerst simuleren zodat die alvast ingevuld kunnen worden?
 - Eerst provincies assignen waar aantal neighbours laagst is
 - Networkx gebruiken? http://codereview.stackexchange.com/questions/120496/a-graph-representation-of-adjacent-matrix-in-python
 
