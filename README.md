@@ -36,11 +36,11 @@ https://www.amcharts.com/svg-maps/?map=china
 
 ##### USA
 
-https://www.amcharts.com/svg-maps/?map=USA
+https://www.amcharts.com/svg-maps/?map=usa
 
 ##### Russia
 
-https://www.amcharts.com/svg-maps/?map=Russia
+https://www.amcharts.com/svg-maps/?map=russia
 
 ##### Ukraine
 
