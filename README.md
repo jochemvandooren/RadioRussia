@@ -34,6 +34,16 @@ http://www.dharwadker.org/vertex_coloring/
 
 https://www.amcharts.com/svg-maps/?map=china
 
+##### USA
+
+https://www.amcharts.com/svg-maps/?map=USA
+
+##### Russia
+
+https://www.amcharts.com/svg-maps/?map=Russia
+
+##### Ukraine
+
 ## Ideas
 
 - Eerst provincies assignen waar aantal neighbours laagst is
