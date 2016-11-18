@@ -13,7 +13,7 @@ print Russia_east
 colours = {1: '#7F0000', 2:'#FF4C4C', 3: '#FF0000', 4:'#7F2626', 5:'#CC0000', 6:'green', 7:'blue'}
 towerdict = {12: 1, 13: 2, }
 # indices = range(14,len(Russia)+1)
-
+all_options = 0
 
 # Determine what state to color by calculating the sum of values of already coloured neighbours.
 # Takes a dictionary representing a (part of a) country and returns a key representing a state.
@@ -26,6 +26,7 @@ def calculate_next(part_of_Russia):
 
 		# keep track of value
 		weight = 0
+		options = 4
 
 		# choose state directly if no neighbours
 		if len(neighbours) == 0:
@@ -36,10 +37,12 @@ def calculate_next(part_of_Russia):
 			for neighbour in neighbours:
 				if neighbour in towerdict.keys():
 					weight += towerdict[neighbour]
+					options -= 1
 		# save in check if highest value
 		if weight > check:
 			check = weight
 			next = key
+		print key, options
 	return next
 
 # Fills the next state. Takes a dictionary and a key-value 
@@ -84,6 +87,11 @@ while any(Russia_east):
 	fill_next(Russia_east, next)
 
 print towerdict
+
+
+
+
+
 
 import xml.etree.ElementTree as ET
 tree = ET.parse('Russia.svg')
