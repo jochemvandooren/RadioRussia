@@ -25,6 +25,7 @@ def calculate_towers(indices, solution, towerdict):
         if i not in solution:
             towers2 = ['A','B','C','D','E','F','G']
             neighbours = ukraine[i]
+            print solution
 
             #print solution
             #remove possible towers based on neighbours
