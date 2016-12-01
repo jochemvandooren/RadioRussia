@@ -31,7 +31,7 @@ def calculate_towers(indices, solution, towerdict):
 
             towers3 = Counter(towerdict.values()).most_common(4)
             if len(towers3) != 0:
-            	print towers3[0]
+            	print towers3
 
 
 
