@@ -34,16 +34,13 @@ def calculate_towers(indices, solution, towerdict):
         if i not in solution:
             towers2 = ['A','B','C','D','E','F','G']
             neighbours = ukraine[i]
-            print solution
+
 
             towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
             for x in towerdict:
             	towercounts[towerdict[x]] += 1
 
             towers2 = sorted(sorted(towercounts), key=towercounts.get, reverse=False)+['E', 'F', 'G']
-            print towercounts
-
-
 
             #print solution
             #remove possible towers based on neighbours
@@ -63,10 +60,12 @@ def calculate_towers(indices, solution, towerdict):
     return None
 
 
-for i in range 1000:
+for i in range(100):
+    start = time.time()
     output = open('results.csv', 'a')
     result = str(calculate_towers(indices, solution, {}))
     output.write(result)
+    output.write('\n')
 
 #colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
 
