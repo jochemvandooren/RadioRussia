@@ -24,6 +24,9 @@ def calculate_towers(indices, solution, towerdict):
     if len(towerdict) == 27:
         return towerdict
 
+    if time.time() - start > 5:
+    	return None
+
 
     optionsdict = {}
 
@@ -40,18 +43,6 @@ def calculate_towers(indices, solution, towerdict):
 
     indices.remove(startwith)
     indices.insert(0, startwith)
-
-
-
-
-
-
-
-
-
-
-
-
 
     #loop through all the provinces
     for i in indices:
@@ -78,8 +69,15 @@ def calculate_towers(indices, solution, towerdict):
 
     return None
 
-calculate_towers(indices, solution, {})
+import time
 
+times = []
+for i in range(0,10):
+    start = time.time()
+    calculate_towers(indices, solution, {})
+    end = time.time()
+    times.append((end - start))
+print times
 #colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
 
 
