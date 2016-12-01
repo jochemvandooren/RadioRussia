@@ -17,7 +17,7 @@ towers = ['A','B','C','D','E','F','G']
 indices = range(1,len(ukraine)+1)
 n = 0
 solution = []
-shuffle(indices)
+
 
 towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
 
@@ -26,7 +26,7 @@ def calculate_towers(indices, solution, towerdict):
     if len(towerdict) == 27:
         return towerdict
 
-    if time.time() - start > 5:
+    if time.time() - start > 1:
     	return None
 
     #loop through all the provinces
@@ -61,10 +61,16 @@ def calculate_towers(indices, solution, towerdict):
 
 
 for i in range(100):
+    shuffle(indices)
     start = time.time()
     output = open('results.csv', 'a')
-    result = str(calculate_towers(indices, solution, {}))
-    output.write(result)
+    result = calculate_towers(indices, solution, {})
+    towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
+    if result:
+        for x in result:
+            towercounts[result[x]] += 1
+    result = str(result)
+    output.write(result+str(towercounts))
     output.write('\n')
 
 #colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
