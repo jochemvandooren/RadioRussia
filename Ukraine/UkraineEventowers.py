@@ -4,6 +4,8 @@ Radio Russia
 """
 from random import shuffle
 from collections import Counter
+import time
+import csv
 
 #loading the dictionary from with pickle
 import pickle
@@ -21,6 +23,9 @@ shuffle(indices)
 def calculate_towers(indices, solution, towerdict):
     if len(towerdict) == 27:
         return towerdict
+
+    if time.time() - start > 5:
+    	return None
 
     #loop through all the provinces
     for i in indices:
@@ -52,7 +57,10 @@ def calculate_towers(indices, solution, towerdict):
 
     return None
 
-calculate_towers(indices, solution, {})
+for i in range 1000:
+    output = open('results.csv', 'a')
+    result = str(calculate_towers(indices, solution, {}))
+    output.write(result)
 #colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
 
 
