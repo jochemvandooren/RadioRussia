@@ -7,72 +7,59 @@ from collections import Counter
 import time
 import csv
 import random
-
-#loading the dictionary from with pickle
 import pickle
-with open('Russia.pickle', 'rb') as handle:
-  ukraine = pickle.load(handle)
+import xml.etree.ElementTree as ET
 
+def loadDict(country):
+    file = country+'.pickle'
 
+    with open(file, 'rb') as handle:
+      country_dict = pickle.load(handle)
+
+    return country_dict
 
 towers = ['A','B','C','D','E','F','G']
-indices = range(1,len(ukraine)+1)
-n = 0
 solution = []
 
-
-towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
-shuffle(indices)
-
 def calculate_towers(indices, solution, towerdict):
-    if len(towerdict) == len(ukraine):
+    if len(towerdict) == len(country):
         return towerdict
-
+    
+    #algorithm has to stop after certain amount of time
     if time.time() - start > 0.3:
     	towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
         for x in towerdict:
             towercounts[towerdict[x]] += 1
-        print towercounts
-        print solution
     	return towerdict
 
+    #choose next province with least amount of possible towers left
     optionsdict = {}
-
-    for province in ukraine:
+    for province in country:
     	if province not in towerdict:
 	    	towers2 = ['A','B','C','D','E','F','G']
-	    	for neighbour in ukraine[province]:
+	    	for neighbour in country[province]:
 	            if neighbour in towerdict:
 	                if towerdict[neighbour] in towers2:
 	                    towers2.remove(towerdict[neighbour])
 	        optionsdict[province] = len(towers2)
-
-
-
-
     startwith = random.choice([k for k,v in optionsdict.iteritems() if v == min(optionsdict.values())])
-
-
     indices.remove(startwith)
     indices.insert(0, startwith)
     print len(solution)
 
     #loop through all the provinces
-    for i in indices:
-        if i not in solution:
+    for province in indices:
+        if province not in solution:
             towers2 = ['A','B','C','D','E','F','G']
-            neighbours = ukraine[i]
+            neighbours = country[province]
 
-
-
+            #sort towers2 to have the least used tower be the first index
             towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
             for x in towerdict:
             	towercounts[towerdict[x]] += 1
-
-
             towers2 = sorted(sorted(towercounts), key=towercounts.get, reverse=False)+['E', 'F', 'G']
 
-            #print solution
+
             #remove possible towers based on neighbours
             for neighbour in neighbours:
                 if neighbour in towerdict:
@@ -81,17 +68,62 @@ def calculate_towers(indices, solution, towerdict):
 
 
             if towers2[0] in ['A', 'B', 'C', 'D']:
-                towerdict[i] = towers2[0]
-                result = calculate_towers(indices, solution + [i], towerdict)
+                towerdict[province] = towers2[0]
+                result = calculate_towers(indices, solution + [province], towerdict)
                 if result != None:
-                    print towercounts
                     return result
-                del towerdict[i]
-
+                del towerdict[province]
     return None
 
+
 start = time.time()
-x = calculate_towers(indices, solution, {})
+
+#change this variable to change the country
+country_string = 'China'
+country = loadDict(country_string)
+indices = range(1,len(country)+1)
+shuffle(indices)
+
+result = calculate_towers(indices, solution, {})
+
+
+towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
+for x in result:
+    towercounts[result[x]] += 1
+
+
+if len(result) == len(country):
+    print 'We found a solution.'
+else:
+    print 'We did not find a solution.'
+
+
+
+#ALL ABOUT THE COLOURING OF THE SVG
+colours = {'A': 'yellow', 'B':'blue','C': 'green','D':'red', 'E':'#CC0000'}
+tree = ET.parse(country_string+'.svg')
+root = tree.getroot()
+
+#ukraine has a different SVG than the others!
+if country_string == 'Ukraine':
+    index = 2
+else:
+    index = 1
+
+for province in root[index]:
+    province.set('fill','black')
+for province in root[index]:
+    try:
+        province.set('fill', colours[result[int(province.attrib['id'])]])
+    except:
+        pass
+tree.write(country_string+'_output.svg')
+
+print result
+print towercounts
+
+
+
 
 # for i in range(100):
 #     shuffle(indices)
@@ -110,21 +142,6 @@ x = calculate_towers(indices, solution, {})
 #         output.write('\n')
 #     	break
 
-colours = {'A': 'yellow', 'B':'blue','C': 'green','D':'red', 'E':'#CC0000'}
 
-
-
-import xml.etree.ElementTree as ET
-tree = ET.parse('Russia.svg')
-root = tree.getroot()
-for province in root[1]:
-	province.set('fill','black')
-for province in root[1]:
-	try:
-	    province.set('fill', colours[x[int(province.attrib['id'])]])
-	except:
-		pass
-
-tree.write('output.svg')
 
 
