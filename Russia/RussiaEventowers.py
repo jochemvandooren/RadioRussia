@@ -14,7 +14,8 @@ with open('Russia.pickle', 'rb') as handle:
   ukraine = pickle.load(handle)
 
 ukraine[31].append(34)
-
+ukraine[25].append(26)
+# print ukraine
 
 towers = ['A','B','C','D','E','F','G']
 indices = range(1,len(ukraine)+1)
@@ -111,7 +112,7 @@ x = calculate_towers(indices, solution, {})
 #         output.write('\n')
 #     	break
 
-colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
+colours = {'A': 'yellow', 'B':'blue','C': 'green','D':'red', 'E':'#CC0000'}
 
 
 
