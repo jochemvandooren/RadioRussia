@@ -79,8 +79,12 @@ def calculate_towers(indices, solution, towerdict):
 start = time.time()
 
 #change this variable to change the country
-country_string = 'China'
+country_string = 'USA'
 country = loadDict(country_string)
+if country_string == 'USA':
+    country[43].append(41)
+    
+print country
 indices = range(1,len(country)+1)
 shuffle(indices)
 
