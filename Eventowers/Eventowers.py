@@ -79,16 +79,19 @@ def calculate_towers(indices, solution, towerdict):
 start = time.time()
 
 #change this variable to change the country
-country_string = 'USA'
+country_string = 'Russia'
 country = loadDict(country_string)
-if country_string == 'USA':
-    country[43].append(41)
-    
-print country
 indices = range(1,len(country)+1)
-shuffle(indices)
+result = {}
 
-result = calculate_towers(indices, solution, {})
+for i in range(0,100):
+    shuffle(indices)
+    result = calculate_towers(indices, solution, {})
+    if len(result) == len(country):
+        break
+print 'toppie', result
+
+#result = calculate_towers(indices, solution, {})
 
 
 towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
@@ -96,6 +99,7 @@ for x in result:
     towercounts[result[x]] += 1
 
 
+#check if all provinces have a colour
 if len(result) == len(country):
     print 'We found a solution.'
 else:
