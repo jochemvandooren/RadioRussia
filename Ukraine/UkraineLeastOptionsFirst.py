@@ -24,7 +24,7 @@ def calculate_towers(indices, solution, towerdict):
     if len(towerdict) == 27:
         return towerdict
 
-    if time.time() - start > 5:
+    if time.time() - start > .3:
     	return None
 
 
@@ -72,25 +72,9 @@ def calculate_towers(indices, solution, towerdict):
 import time
 
 times = []
-for i in range(0,10):
-    start = time.time()
-    calculate_towers(indices, solution, {})
-    end = time.time()
-    times.append((end - start))
-print times
-#colours = {'A': '#7F0000', 'B':'#FF4C4C','C': '#FF0000','D':'#7F2626', 'E':'#CC0000'}
+
+start = time.time()
+
+calculate_towers(indices, solution, {})
 
 
-
-#import xml.etree.ElementTree as ET
-#tree = ET.parse('Ukraine.svg')
-#root = tree.getroot()
-#for province in root[2]:
-#   province.set('fill', colours[towerdict[int(province.attrib['id'])]])
-
-#tree.write('output.svg')
-
-#TEST TO CHECK IF MORE THAN 3 TOWERS
-# for i in range(0,200):
-#   if 'D' not in calculate_towers(indices).values():
-#       print 'SICK'

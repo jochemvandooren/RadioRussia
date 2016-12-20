@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Radio Russia
+This file contains an algorithm that colours SVG's where every colour is used the same amount of times
+On line 92 you can change the country string. Choose 'USA', 'China', 'Ukraine' or 'Russia'.
 """
 from random import shuffle
 from collections import Counter
@@ -15,6 +17,13 @@ def loadDict(country):
 
     with open(file, 'rb') as handle:
       country_dict = pickle.load(handle)
+
+    #some dictionaries have to be fixed
+    if len(country_dict) == 48:
+        country_dict[43].append(41)
+        country_dict[29].append(36)
+    if len(country_dict) == 31:
+        country_dict[3].append(1)
 
     return country_dict
 
@@ -32,6 +41,7 @@ def calculate_towers(indices, solution, towerdict):
             towercounts[towerdict[x]] += 1
     	return towerdict
 
+
     #choose next province with least amount of possible towers left
     optionsdict = {}
     for province in country:
@@ -45,7 +55,7 @@ def calculate_towers(indices, solution, towerdict):
     startwith = random.choice([k for k,v in optionsdict.iteritems() if v == min(optionsdict.values())])
     indices.remove(startwith)
     indices.insert(0, startwith)
-    print len(solution), 'Countries coloured'
+
 
     #loop through all the provinces
     for province in indices:
@@ -71,48 +81,49 @@ def calculate_towers(indices, solution, towerdict):
                 towerdict[province] = towers2[0]
                 result = calculate_towers(indices, solution + [province], towerdict)
                 if result != None:
-                    print solution
+
                     return result
                 del towerdict[province]
     return None
 
 
 start = time.time()
-
 #change this variable to change the country
 country_string = 'Russia'
 country = loadDict(country_string)
 indices = range(1,len(country)+1)
 result = {}
-
-for i in range(0,5):
-    print 'eits'
-    solution = []
+result = calculate_towers(indices, [], {})
+for y in range(0,100):
     shuffle(indices)
-    result = calculate_towers(indices, solution, {})
-    print result
+    start = time.time()
+    result = calculate_towers(indices, [], {})
 
     if len(result) == len(country):
+        towers_result = []
+        for z in result:
+            if result[z] not in towers_result:
+                towers_result.append(result[z])
+        if len(towers_result) == 4:
+            print y+1, 'simulation(s) made in order to find a solution with 4 towers.'
         break
+
+print 'These are the provinces with the assigned towers for the country', country_string
 print result
 
-
-
+print
+print 'The amount of towers used is:',len(towers_result)
 towercounts = {'A':0, 'B':0, 'C':0, 'D':0}
 for x in result:
     towercounts[result[x]] += 1
+print towercounts
+print 
 
-
-#check if all provinces have a colour
-if len(result) == len(country):
-    print 'We found a solution.'
-else:
-    print 'We did not find a solution.'
 
 
 
 #ALL ABOUT THE COLOURING OF THE SVG
-colours = {'A': 'yellow', 'B':'blue','C': 'green','D':'red', 'E':'#CC0000'}
+colours = {'A': '#e41a1c', 'B':'#377eb8','C': '#4daf4a','D':'#984ea3', 'E':'#ff7f00', 'F':'#ffff33', 'G': '#a65628'}
 tree = ET.parse(country_string+'.svg')
 root = tree.getroot()
 
@@ -130,9 +141,10 @@ for province in root[index]:
     except:
         pass
 tree.write(country_string+'_output.svg')
+print 'Open',country_string+'_output.svg','to see the result!'
 
-print result
-print towercounts
+
+
 
 
 
