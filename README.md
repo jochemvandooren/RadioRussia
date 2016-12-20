@@ -7,6 +7,21 @@ Stanley Kelder
 
 Roelof Konijnenberg
 
+# To Do
+
+- Voor elk algoritme een directory maken met 1 python file
+- Alle code opschonen etc.
+- Verslag schrijven
+- Maximaliseren van x aantal torens
+
+#e41a1c
+#377eb8
+#4daf4a
+#984ea3
+#ff7f00
+#ffff33
+#a65628
+
 ## Plan van aanpak
 
 - Verzinnen welke soort algoritmes gebruikt gaan worden
